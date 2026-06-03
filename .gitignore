@@ -21,3 +21,11 @@ pnpm-debug.log*
 
 # Astro
 .astro/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.vite/
