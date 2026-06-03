@@ -1,0 +1,90 @@
+---
+interface Props {
+  curso: {
+    id: string;
+    nombre: string;
+    descripcion: string;
+    nivel: string;
+    comision: string;
+    estrellas: number;
+    pros: string[];
+    contras: string[];
+    hotlink: string;
+    destacado: boolean;
+    duracion: string;
+    precio: string;
+  };
+}
+
+const { curso } = Astro.props;
+
+const estrellas = Array.from({ length: 5 }, (_, i) => i < Math.floor(curso.estrellas));
+---
+
+<article class={`relative bg-white rounded-2xl border-2 shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-1 hover:shadow-xl ${curso.destacado ? 'border-rosa-500' : 'border-gray-100'}`}>
+
+  {curso.destacado && (
+    <div class="absolute top-0 left-0 right-0 bg-rosa-500 text-white text-xs font-semibold text-center py-1 tracking-wide uppercase">
+      ⭐ Más Vendido
+    </div>
+  )}
+
+  <div class={`p-6 flex flex-col flex-1 ${curso.destacado ? 'pt-9' : ''}`}>
+
+    <!-- Cabecera -->
+    <div class="mb-4">
+      <span class="inline-block bg-rosa-50 text-rosa-700 text-xs font-medium px-2.5 py-1 rounded-full mb-2">
+        {curso.nivel}
+      </span>
+      <h3 class="font-display text-xl font-bold text-gray-900 leading-snug">
+        {curso.nombre}
+      </h3>
+    </div>
+
+    <!-- Estrellas -->
+    <div class="flex items-center gap-1 mb-3">
+      {estrellas.map((llena) => (
+        <span class={llena ? 'text-dorado-500' : 'text-gray-200'}>★</span>
+      ))}
+      <span class="text-sm text-gray-500 ml-1">{curso.estrellas}/5</span>
+    </div>
+
+    <!-- Descripción -->
+    <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
+      {curso.descripcion}
+    </p>
+
+    <!-- Pros -->
+    <ul class="mb-4 space-y-1">
+      {curso.pros.map((pro) => (
+        <li class="flex items-start gap-2 text-sm text-gray-700">
+          <span class="text-rosa-500 mt-0.5 flex-shrink-0">✓</span>
+          {pro}
+        </li>
+      ))}
+    </ul>
+
+    <!-- Contras -->
+    {curso.contras.length > 0 && (
+      <ul class="mb-5 space-y-1">
+        {curso.contras.map((contra) => (
+          <li class="flex items-start gap-2 text-sm text-gray-400">
+            <span class="mt-0.5 flex-shrink-0">−</span>
+            {contra}
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <!-- CTA -->
+    <a
+      href={curso.hotlink}
+      target="_blank"
+      rel="noopener noreferrer sponsored"
+      class="block w-full text-center bg-rosa-600 hover:bg-rosa-700 text-white font-bold py-3.5 px-6 rounded-xl transition-colors duration-200 text-base"
+    >
+      Ver Curso Completo →
+    </a>
+
+  </div>
+</article>

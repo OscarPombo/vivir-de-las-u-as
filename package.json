@@ -1,0 +1,19 @@
+{
+  "name": "vivirdelas-unas",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.8.0",
+    "@astrojs/tailwind": "^5.1.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
