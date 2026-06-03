@@ -1,208 +1,207 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CursoCard from '../components/CursoCard.astro';
-import { cursos, categorias } from '../data/cursos.js';
+
+const niveles = [
+  {
+    id: 'cero',
+    numero: '01',
+    etiqueta: 'Empiezo desde cero',
+    titular: 'Aprende el oficio.',
+    subtitulo: 'Sin experiencia previa. Sin saber dibujar. Sin nada.',
+    descripcion: 'Hay cursos diseñados exactamente para ti. Técnicas base, herramientas mínimas y el método paso a paso que usan las profesionales desde el primer día.',
+    color: 'rosa',
+    cta: 'Ver cursos para principiantes',
+    href: '#cursos-cero',
+  },
+  {
+    id: 'tecnicas',
+    numero: '02',
+    etiqueta: 'Ya sé lo básico',
+    titular: 'Especialízate en lo que más pagan.',
+    subtitulo: 'Manicura Rusa, Acrílico, Gel, Polygel.',
+    descripcion: 'Las técnicas de tendencia que todas las clientas piden — y que marcan la diferencia entre cobrar 15€ o cobrar 50€ por el mismo tiempo de trabajo.',
+    color: 'oscuro',
+    cta: 'Ver cursos de especialización',
+    href: '#cursos-tecnicas',
+  },
+  {
+    id: 'negocio',
+    numero: '03',
+    etiqueta: 'Quiero montar mi negocio',
+    titular: 'Convierte lo que sabes en un sueldo.',
+    subtitulo: 'Desde casa. A tu ritmo. Sin jefe.',
+    descripcion: 'No es solo saber hacer uñas. Es saber conseguir clientas, poner precios que no te quemen y construir algo tuyo que funcione aunque no estés mirando.',
+    color: 'dorado',
+    cta: 'Ver cursos de negocio',
+    href: '#cursos-negocio',
+  },
+];
 ---
 
-<Layout>
+<Layout
+  title="Vivir de las Uñas — Cursos Online para Ganar Dinero desde Casa"
+  description="Aprende manicura profesional y monta tu negocio desde casa. Cursos seleccionados para mujeres que empiezan desde cero y quieren su primera clienta en semanas."
+>
+
   <!-- ===== HERO ===== -->
-  <section class="bg-gradient-to-br from-rosa-50 via-white to-dorado-50 pt-16 pb-20 px-4">
-    <div class="max-w-4xl mx-auto text-center">
+  <section class="bg-white pt-16 pb-20 px-6 border-b border-gray-100">
+    <div class="max-w-3xl mx-auto">
 
-      <span class="inline-block bg-rosa-100 text-rosa-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
-        💅 La guía que nadie te dio para vivir de tu pasión
-      </span>
+      <p class="text-sm font-semibold text-rosa-600 uppercase tracking-widest mb-6">
+        Para mujeres que quieren más
+      </p>
 
-      <h1 class="font-display text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-        Gana Dinero Real<br />
-        <span class="text-rosa-600">con tus Uñas</span><br />
-        desde Casa
+      <h1 class="font-display text-5xl md:text-7xl font-extrabold text-gray-900 leading-none mb-6">
+        Vive de<br />las uñas.
       </h1>
 
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Cursos 100% online para mujeres que quieren aprender manicura desde cero,
-        montar su negocio en casa y conseguir su primera clienta en semanas —
-        sin experiencia previa y sin invertir una fortuna.
+      <p class="text-xl text-gray-500 leading-relaxed max-w-xl mb-4">
+        Un sueldo propio. Sin depender de nadie.
+      </p>
+      <p class="text-base text-gray-400 max-w-lg mb-12">
+        Aquí están los cursos que te enseñan el oficio de verdad —<br class="hidden md:block"/>
+        desde la primera técnica hasta la primera clienta que paga.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="#cursos"
-          class="bg-rosa-600 hover:bg-rosa-700 text-white font-bold py-4 px-8 rounded-xl text-lg transition-colors shadow-lg shadow-rosa-200"
-        >
-          Ver los Mejores Cursos →
-        </a>
-        <a
-          href="#como-funciona"
-          class="bg-white border-2 border-gray-200 hover:border-rosa-300 text-gray-700 font-semibold py-4 px-8 rounded-xl text-lg transition-colors"
-        >
-          ¿Cómo funciona?
-        </a>
-      </div>
-
-      <!-- Prueba social rápida -->
-      <div class="mt-12 flex flex-wrap justify-center gap-8 text-center">
-        <div>
-          <p class="text-3xl font-display font-bold text-rosa-600">+12.000</p>
-          <p class="text-sm text-gray-500">alumnas formadas</p>
-        </div>
-        <div>
-          <p class="text-3xl font-display font-bold text-rosa-600">4.8 ★</p>
-          <p class="text-sm text-gray-500">valoración media</p>
-        </div>
-        <div>
-          <p class="text-3xl font-display font-bold text-rosa-600">100%</p>
-          <p class="text-sm text-gray-500">online y a tu ritmo</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== CÓMO FUNCIONA ===== -->
-  <section id="como-funciona" class="py-20 px-4 bg-white">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-        De cero a <span class="text-rosa-600">negocio propio</span> en 3 pasos
-      </h2>
-      <p class="text-gray-500 text-center mb-14 max-w-xl mx-auto">
-        Sin salir de casa. Sin horarios fijos. Sin jefe.
-      </p>
-      <div class="grid md:grid-cols-3 gap-8">
-        {[
-          { num: '01', titulo: 'Elige tu curso', desc: 'Selecciona la técnica que más te guste — o la que más se paga en tu zona.' },
-          { num: '02', titulo: 'Practica en casa', desc: 'Acceso de por vida, en video. Aprende cuando puedas, sin presión.' },
-          { num: '03', titulo: 'Cobra tu primer servicio', desc: 'Con las herramientas del curso tienes todo lo que necesitas para empezar a ganar.' },
-        ].map((paso) => (
-          <div class="text-center p-6 rounded-2xl bg-rosa-50">
-            <div class="text-5xl font-display font-extrabold text-rosa-200 mb-3">{paso.num}</div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">{paso.titulo}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{paso.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CATEGORÍAS ===== -->
-  <section class="py-12 px-4 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid sm:grid-cols-3 gap-4">
-        {categorias.map((cat) => (
-          <a
-            href={`#${cat.id}`}
-            class="flex items-center gap-4 bg-white border border-gray-100 rounded-xl p-4 hover:border-rosa-300 hover:shadow-md transition-all"
-          >
-            <span class="text-3xl">{cat.icono}</span>
-            <div>
-              <p class="font-bold text-gray-900 text-sm">{cat.nombre}</p>
-              <p class="text-xs text-gray-500 mt-0.5">{cat.descripcion}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GRID DE CURSOS ===== -->
-  <section id="cursos" class="py-20 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-        Los Cursos Más Recomendados
-      </h2>
-      <p class="text-gray-500 text-center mb-14 max-w-xl mx-auto">
-        Seleccionados por popularidad, calidad de contenido y resultados reales de alumnas.
-      </p>
-
-      {categorias.map((cat) => {
-        const cursosCat = cursos.filter((c) => c.categoria === cat.id);
-        if (cursosCat.length === 0) return null;
-        return (
-          <div id={cat.id} class="mb-16">
-            <div class="flex items-center gap-3 mb-8">
-              <span class="text-2xl">{cat.icono}</span>
-              <h3 class="font-display text-2xl font-bold text-gray-900">{cat.nombre}</h3>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cursosCat.map((curso) => (
-                <CursoCard curso={curso} />
-              ))}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  </section>
-
-  <!-- ===== OBJECIONES / FAQ ===== -->
-  <section class="py-20 px-4 bg-rosa-50">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
-        "Pero yo no sé si podré..."
-      </h2>
-      <div class="space-y-6">
-        {[
-          {
-            q: '¿Y si no tengo talento para dibujar o hacer diseños?',
-            a: 'La manicura profesional no es arte — es técnica. Estos cursos te enseñan paso a paso con un método claro. Cientos de alumnas sin ninguna experiencia previa lo han conseguido.',
-          },
-          {
-            q: '¿No necesito mucho dinero para empezar?',
-            a: 'El kit básico para empezar cuesta mucho menos de lo que crees, y lo recuperas con tus primeras 2 o 3 clientas. El curso te dice exactamente qué comprar sin malgastar.',
-          },
-          {
-            q: '¿Tengo tiempo si trabajo o tengo hijos?',
-            a: 'Todos los cursos son 100% online, a tu ritmo. Puedes ver una clase de 20 minutos cuando los niños duermen. Sin horarios fijos, sin fechas límite.',
-          },
-          {
-            q: '¿Realmente puedo ganar dinero con esto?',
-            a: 'El sector de la belleza en casa ha explotado en los últimos años. Una manicurista en casa cobra entre 20€ y 60€ por servicio. Con 4 clientas a la semana ya superas un salario parcial.',
-          },
-        ].map((item) => (
-          <details class="bg-white rounded-xl p-6 shadow-sm group cursor-pointer">
-            <summary class="font-semibold text-gray-900 list-none flex justify-between items-center">
-              {item.q}
-              <span class="text-rosa-500 ml-4 flex-shrink-0 text-xl group-open:rotate-45 transition-transform">+</span>
-            </summary>
-            <p class="mt-4 text-gray-600 leading-relaxed text-sm">{item.a}</p>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA FINAL ===== -->
-  <section class="py-20 px-4 bg-gradient-to-r from-rosa-600 to-rosa-700 text-white text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="font-display text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-        Tu negocio empieza<br />con una decisión
-      </h2>
-      <p class="text-rosa-100 text-lg mb-10">
-        Elige el curso que más te llama, empieza esta semana y ten tus primeras clientas antes de que pase un mes.
-      </p>
       <a
-        href="#cursos"
-        class="inline-block bg-white text-rosa-700 font-bold py-4 px-10 rounded-xl text-lg hover:bg-rosa-50 transition-colors shadow-lg"
+        href="#niveles"
+        class="inline-block bg-rosa-600 hover:bg-rosa-700 text-white font-bold py-4 px-8 rounded-xl text-base transition-colors"
       >
-        Ver todos los cursos →
+        Encuentra tu punto de partida →
       </a>
+
+    </div>
+  </section>
+
+  <!-- ===== PREGUNTA DE SEGMENTACIÓN ===== -->
+  <section id="niveles" class="bg-gray-50 py-16 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">Primer paso</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">
+        ¿Dónde estás ahora mismo?
+      </h2>
+      <p class="text-gray-500 mt-3 text-base">
+        Cada persona llega en un punto diferente. Elige el tuyo y te llevamos al curso que encaja.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 3 BLOQUES DE NIVEL ===== -->
+  <section class="bg-gray-50 pb-20 px-6">
+    <div class="max-w-5xl mx-auto space-y-6">
+
+      {niveles.map((nivel) => (
+        <div
+          id={`bloque-${nivel.id}`}
+          class={`rounded-2xl border-2 overflow-hidden flex flex-col md:flex-row
+            ${nivel.color === 'rosa'   ? 'border-rosa-200 bg-white' : ''}
+            ${nivel.color === 'oscuro' ? 'border-gray-800 bg-gray-900 text-white' : ''}
+            ${nivel.color === 'dorado' ? 'border-dorado-400 bg-white' : ''}
+          `}
+        >
+          <!-- Número de nivel -->
+          <div class={`flex items-center justify-center px-10 py-8 text-6xl font-display font-extrabold shrink-0 md:w-40
+            ${nivel.color === 'rosa'   ? 'text-rosa-100 bg-rosa-50' : ''}
+            ${nivel.color === 'oscuro' ? 'text-gray-700 bg-gray-800' : ''}
+            ${nivel.color === 'dorado' ? 'text-dorado-100 bg-dorado-50' : ''}
+          `}>
+            {nivel.numero}
+          </div>
+
+          <!-- Contenido -->
+          <div class="flex flex-col justify-between p-8 flex-1 gap-6">
+            <div>
+              <span class={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4
+                ${nivel.color === 'rosa'   ? 'bg-rosa-100 text-rosa-700' : ''}
+                ${nivel.color === 'oscuro' ? 'bg-gray-700 text-gray-300' : ''}
+                ${nivel.color === 'dorado' ? 'bg-dorado-100 text-dorado-700' : ''}
+              `}>
+                {nivel.etiqueta}
+              </span>
+              <h3 class={`font-display text-2xl md:text-3xl font-bold mb-1
+                ${nivel.color === 'oscuro' ? 'text-white' : 'text-gray-900'}
+              `}>
+                {nivel.titular}
+              </h3>
+              <p class={`text-sm font-semibold mb-4
+                ${nivel.color === 'rosa'   ? 'text-rosa-500' : ''}
+                ${nivel.color === 'oscuro' ? 'text-gray-400' : ''}
+                ${nivel.color === 'dorado' ? 'text-dorado-600' : ''}
+              `}>
+                {nivel.subtitulo}
+              </p>
+              <p class={`text-sm leading-relaxed max-w-lg
+                ${nivel.color === 'oscuro' ? 'text-gray-300' : 'text-gray-500'}
+              `}>
+                {nivel.descripcion}
+              </p>
+            </div>
+
+            <a
+              href={nivel.href}
+              class={`self-start inline-block font-bold py-3 px-6 rounded-xl text-sm transition-colors
+                ${nivel.color === 'rosa'   ? 'bg-rosa-600 hover:bg-rosa-700 text-white' : ''}
+                ${nivel.color === 'oscuro' ? 'bg-white hover:bg-gray-100 text-gray-900' : ''}
+                ${nivel.color === 'dorado' ? 'bg-dorado-500 hover:bg-dorado-600 text-white' : ''}
+              `}
+            >
+              {nivel.cta} →
+            </a>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+  <!-- ===== ZONA DE CURSOS (placeholders por nivel) ===== -->
+
+  <!-- NIVEL 1 -->
+  <section id="cursos-cero" class="py-20 px-6 bg-white border-t-4 border-rosa-100">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-rosa-500">Nivel 01</span>
+      </div>
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-10">Empiezo desde cero</h2>
+      <div class="space-y-4">
+        <p class="text-gray-400 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVEL 2 -->
+  <section id="cursos-tecnicas" class="py-20 px-6 bg-gray-900 border-t-4 border-gray-700">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Nivel 02</span>
+      </div>
+      <h2 class="font-display text-3xl font-bold text-white mb-10">Técnicas de especialización</h2>
+      <div class="space-y-4">
+        <p class="text-gray-500 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVEL 3 -->
+  <section id="cursos-negocio" class="py-20 px-6 bg-white border-t-4 border-dorado-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-bold uppercase tracking-widest text-dorado-600">Nivel 03</span>
+      </div>
+      <h2 class="font-display text-3xl font-bold text-gray-900 mb-10">Monta tu negocio</h2>
+      <div class="space-y-4">
+        <p class="text-gray-400 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
+      </div>
     </div>
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="bg-gray-900 text-gray-400 py-10 px-4 pb-12">
-    <div class="max-w-5xl mx-auto text-center text-sm space-y-3">
-      <p class="text-white font-semibold text-base">VivirDeLasUñas.com</p>
-      <p>
-        Este sitio web contiene enlaces de afiliado de Hotmart. Cuando compras a través de estos enlaces,
-        recibimos una comisión sin coste adicional para ti.
-      </p>
-      <p>Los resultados dependen del esfuerzo y dedicación de cada alumna. Los testimonios no garantizan ingresos similares.</p>
-      <div class="flex justify-center gap-6 pt-2">
-        <a href="/privacidad" class="hover:text-white transition-colors">Política de Privacidad</a>
-        <a href="/aviso-legal" class="hover:text-white transition-colors">Aviso Legal</a>
-        <a href="/contacto" class="hover:text-white transition-colors">Contacto</a>
-      </div>
+  <footer class="bg-gray-950 text-gray-500 py-10 px-6 pb-14">
+    <div class="max-w-4xl mx-auto text-center text-sm space-y-3">
+      <p class="text-white font-semibold">VivirDeLasUñas.com</p>
+      <p>Contiene enlaces de afiliado de Hotmart. Al comprar a través de ellos no pagas nada extra.</p>
+      <p class="text-xs text-gray-600">Los resultados dependen del esfuerzo de cada persona. Los testimonios no garantizan ingresos similares.</p>
     </div>
   </footer>
 
