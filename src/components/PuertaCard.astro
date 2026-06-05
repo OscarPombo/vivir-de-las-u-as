@@ -1,0 +1,72 @@
+---
+import CtaBoton from './CtaBoton.astro';
+
+interface Props {
+  titulo: string;
+  href:   string;
+  cta:    string;
+}
+
+const { titulo, href, cta } = Astro.props;
+---
+
+<article class="puerta">
+  <h2 class="puerta-titulo">{titulo}</h2>
+  <div class="puerta-cuerpo">
+    <slot />
+  </div>
+  <div class="puerta-accion">
+    <CtaBoton href={href} texto={cta} />
+  </div>
+</article>
+
+<style>
+  .puerta {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .puerta-titulo {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .puerta-cuerpo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .puerta-cuerpo :global(p) {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  .puerta-cuerpo :global(p:first-child strong) {
+    font-size: 1.0625rem;
+    color: var(--brand);
+  }
+
+  .puerta-accion {
+    margin-top: 0.5rem;
+  }
+
+  .puerta-accion :global(.cta) {
+    width: 100%;
+    display: block;
+  }
+</style>

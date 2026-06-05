@@ -1,16 +1,12 @@
 ---
+import '../styles/tokens.css';
+
 interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
+  title:        string;
+  description:  string;
 }
 
-const {
-  title = 'Vivir de las Uñas — Cursos de Manicura para Ganar Dinero desde Casa',
-  description = 'Aprende manicura profesional con los mejores cursos online. Empieza sin experiencia y monta tu negocio de uñas en casa con una mínima inversión.',
-  image = '/og-image.jpg',
-} = Astro.props;
-
+const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -21,23 +17,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
 
-    <!-- SEO Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalURL} />
+    <meta property="og:title"       content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, Astro.site)} />
 
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -47,11 +38,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-800 font-sans antialiased">
+  <body>
     <slot />
-    <!-- Aviso de afiliación requerido por Hotmart -->
-    <div class="fixed bottom-0 left-0 right-0 bg-gray-900 text-gray-300 text-xs text-center py-2 px-4 z-50">
-      Este sitio contiene enlaces de afiliado. Al comprar a través de ellos no pagas nada extra y nos ayudas a seguir creando contenido gratuito.
-    </div>
+    <footer class="pie">
+      <p>Este sitio contiene enlaces de afiliado de Hotmart. Al comprar a través de ellos no pagas nada extra.</p>
+    </footer>
   </body>
 </html>
+
+<style>
+  .pie {
+    border-top: 1px solid var(--border);
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+</style>

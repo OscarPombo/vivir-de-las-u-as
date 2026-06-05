@@ -1,0 +1,46 @@
+:root {
+  --brand:        #B5455A;
+  --brand-dark:   #8E3447;
+  --bg:           #FAFAF8;
+  --bg-alt:       #F2EDE9;
+  --text:         #1C1C1C;
+  --text-muted:   #6B6565;
+  --border:       #DDD7D1;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --max-text:  700px;
+  --max-wide: 1100px;
+
+  --space-section: 5rem;
+  --space-block:   2rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+hr.separador {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-block) 0;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--text);
+}

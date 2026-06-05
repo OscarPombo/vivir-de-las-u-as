@@ -1,208 +1,201 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const niveles = [
-  {
-    id: 'cero',
-    numero: '01',
-    etiqueta: 'Empiezo desde cero',
-    titular: 'Aprende el oficio.',
-    subtitulo: 'Sin experiencia previa. Sin saber dibujar. Sin nada.',
-    descripcion: 'Hay cursos diseñados exactamente para ti. Técnicas base, herramientas mínimas y el método paso a paso que usan las profesionales desde el primer día.',
-    color: 'rosa',
-    cta: 'Ver cursos para principiantes',
-    href: '#cursos-cero',
-  },
-  {
-    id: 'tecnicas',
-    numero: '02',
-    etiqueta: 'Ya sé lo básico',
-    titular: 'Especialízate en lo que más pagan.',
-    subtitulo: 'Manicura Rusa, Acrílico, Gel, Polygel.',
-    descripcion: 'Las técnicas de tendencia que todas las clientas piden — y que marcan la diferencia entre cobrar 15€ o cobrar 50€ por el mismo tiempo de trabajo.',
-    color: 'oscuro',
-    cta: 'Ver cursos de especialización',
-    href: '#cursos-tecnicas',
-  },
-  {
-    id: 'negocio',
-    numero: '03',
-    etiqueta: 'Quiero montar mi negocio',
-    titular: 'Convierte lo que sabes en un sueldo.',
-    subtitulo: 'Desde casa. A tu ritmo. Sin jefe.',
-    descripcion: 'No es solo saber hacer uñas. Es saber conseguir clientas, poner precios que no te quemen y construir algo tuyo que funcione aunque no estés mirando.',
-    color: 'dorado',
-    cta: 'Ver cursos de negocio',
-    href: '#cursos-negocio',
-  },
-];
+import PuertaCard from '../components/PuertaCard.astro';
+import CtaBoton from '../components/CtaBoton.astro';
 ---
 
 <Layout
-  title="Vivir de las Uñas — Cursos Online para Ganar Dinero desde Casa"
-  description="Aprende manicura profesional y monta tu negocio desde casa. Cursos seleccionados para mujeres que empiezan desde cero y quieren su primera clienta en semanas."
+  title="Vivir de las Uñas — Cursos online para vivir de las uñas"
+  description="Tres formas de vivir de las uñas. Empieza por la que ya eres tú. Cursos online para mujeres que quieren un ingreso propio pintando uñas."
 >
 
-  <!-- ===== HERO ===== -->
-  <section class="bg-white pt-16 pb-20 px-6 border-b border-gray-100">
-    <div class="max-w-3xl mx-auto">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="pretitular">Cursos online para vivir de las uñas. Sin salón. Sin máquina cara. Sin dejar lo que ya haces.</p>
+      <h1 class="titular">Tres formas de vivir de las uñas. Empieza por la que ya eres tú.</h1>
+      <div class="bandera">
+        <p>Para mujeres que quieren un ingreso propio pintando uñas. Sin dejar lo que ya hacen. Sin alquilar local. Sin pedir préstamos. Donde quiera que vivas.</p>
+      </div>
+    </div>
+  </header>
 
-      <p class="text-sm font-semibold text-rosa-600 uppercase tracking-widest mb-6">
-        Para mujeres que quieren más
-      </p>
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="columna-texto">
+      <p>No sé dónde estás tú.</p>
+      <p>Pero por aquí pasan tres mujeres cada día.</p>
+      <p>Una nunca ha pintado a nadie.</p>
+      <p>Otra ya le pinta a la hermana, a la prima, a la vecina.</p>
+      <p>Y otra lleva meses cobrando, pero no termina de cuadrarle.</p>
+      <p>Las tres caben aquí.</p>
+      <p>Solo que cada una entra por una puerta distinta.</p>
+      <p><strong>Mira cuál se te parece más. Y entra por ahí.</strong></p>
+    </div>
+  </section>
 
-      <h1 class="font-display text-5xl md:text-7xl font-extrabold text-gray-900 leading-none mb-6">
-        Vive de<br />las uñas.
-      </h1>
+  <!-- PUERTAS -->
+  <section class="puertas">
+    <div class="puertas-grid">
 
-      <p class="text-xl text-gray-500 leading-relaxed max-w-xl mb-4">
-        Un sueldo propio. Sin depender de nadie.
-      </p>
-      <p class="text-base text-gray-400 max-w-lg mb-12">
-        Aquí están los cursos que te enseñan el oficio de verdad —<br class="hidden md:block"/>
-        desde la primera técnica hasta la primera clienta que paga.
-      </p>
-
-      <a
-        href="#niveles"
-        class="inline-block bg-rosa-600 hover:bg-rosa-700 text-white font-bold py-4 px-8 rounded-xl text-base transition-colors"
+      <PuertaCard
+        titulo="Si nunca has pintado a nadie. O solo a ti misma"
+        href="https://go.hotmart.com/G106098810P?ap=8fe9"
+        cta="→ Sí, soy yo. Quiero empezar de cero."
       >
-        Encuentra tu punto de partida →
-      </a>
+        <p><strong>Llevas semanas viendo vídeos de uñas antes de dormir.</strong></p>
+        <p>Hay un kit en Amazon que no te atreves a abrir.</p>
+        <p>O ni siquiera lo has pedido todavía.</p>
+        <p>Sabes que esto se te daría.</p>
+        <p>Pero no sabes por dónde empezar. Ni si invertir cincuenta dólares en un curso tiene sentido cuando ni siquiera sabes si vas a aguantar la primera semana.</p>
+        <p>Por aquí empiezas.</p>
+        <p>Acrílico, gel, semipermanente desde cero.</p>
+        <p>Cómo aplicar para que aguante.</p>
+        <p>Y cómo cobrarle a tu primera clienta sin quedar como la prima que regala el tiempo.</p>
+      </PuertaCard>
+
+      <PuertaCard
+        titulo="Si ya pintas. Pero la uña no aguanta como debería"
+        href="/tecnica"
+        cta="→ Sí, soy yo. Quiero subir nivel."
+      >
+        <p><strong>Ya le pintaste a la hermana, a alguna amiga, a alguna vecina.</strong></p>
+        <p>Te dicen que muy bien.</p>
+        <p>Pero la uña te dura una semana en lugar de tres.</p>
+        <p>Los diseños se te quedan cortos.</p>
+        <p>Y tu prima, que empezó después que tú, cobra el doble.</p>
+        <p>Por aquí se sube nivel.</p>
+        <p>Las técnicas (rusas, ucranianas, brasileñas) que hacen que la uña aguante tres semanas. Polygel, kapping, dipping. Esculpidas. Nail art a mano alzada.</p>
+        <p>Lo que separa a la que regala manicuras a la familia de la que tiene los sábados llenos a treinta dólares la sesión.</p>
+      </PuertaCard>
+
+      <PuertaCard
+        titulo="Si ya cobras. Pero esto no es un negocio aún"
+        href="/negocio"
+        cta="→ Sí, soy yo. Quiero montar el negocio."
+      >
+        <p><strong>Los sábados los tienes llenos.</strong></p>
+        <p>Pero el lunes sigues sin saber cuánto ganaste el mes pasado.</p>
+        <p>Ni cuánto te costó cada clienta.</p>
+        <p>Ni a quién deberías cobrar más.</p>
+        <p>Ni cómo subir precio sin que la clienta del barrio te deje de llamar.</p>
+        <p>Por aquí se monta el negocio.</p>
+        <p>Cómo cobrar a domicilio sin local. Cómo gestionar la agenda. Cómo calcular precios para que cada sesión deje margen. Cómo dejar de cambiar horas por euros y empezar a vivir de las uñas de verdad.</p>
+      </PuertaCard>
 
     </div>
   </section>
 
-  <!-- ===== PREGUNTA DE SEGMENTACIÓN ===== -->
-  <section id="niveles" class="bg-gray-50 py-16 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-3">Primer paso</p>
-      <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900">
-        ¿Dónde estás ahora mismo?
-      </h2>
-      <p class="text-gray-500 mt-3 text-base">
-        Cada persona llega en un punto diferente. Elige el tuyo y te llevamos al curso que encaja.
-      </p>
-    </div>
-  </section>
-
-  <!-- ===== 3 BLOQUES DE NIVEL ===== -->
-  <section class="bg-gray-50 pb-20 px-6">
-    <div class="max-w-5xl mx-auto space-y-6">
-
-      {niveles.map((nivel) => (
-        <div
-          id={`bloque-${nivel.id}`}
-          class={`rounded-2xl border-2 overflow-hidden flex flex-col md:flex-row
-            ${nivel.color === 'rosa'   ? 'border-rosa-200 bg-white' : ''}
-            ${nivel.color === 'oscuro' ? 'border-gray-800 bg-gray-900 text-white' : ''}
-            ${nivel.color === 'dorado' ? 'border-dorado-400 bg-white' : ''}
-          `}
-        >
-          <!-- Número de nivel -->
-          <div class={`flex items-center justify-center px-10 py-8 text-6xl font-display font-extrabold shrink-0 md:w-40
-            ${nivel.color === 'rosa'   ? 'text-rosa-100 bg-rosa-50' : ''}
-            ${nivel.color === 'oscuro' ? 'text-gray-700 bg-gray-800' : ''}
-            ${nivel.color === 'dorado' ? 'text-dorado-100 bg-dorado-50' : ''}
-          `}>
-            {nivel.numero}
-          </div>
-
-          <!-- Contenido -->
-          <div class="flex flex-col justify-between p-8 flex-1 gap-6">
-            <div>
-              <span class={`inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4
-                ${nivel.color === 'rosa'   ? 'bg-rosa-100 text-rosa-700' : ''}
-                ${nivel.color === 'oscuro' ? 'bg-gray-700 text-gray-300' : ''}
-                ${nivel.color === 'dorado' ? 'bg-dorado-100 text-dorado-700' : ''}
-              `}>
-                {nivel.etiqueta}
-              </span>
-              <h3 class={`font-display text-2xl md:text-3xl font-bold mb-1
-                ${nivel.color === 'oscuro' ? 'text-white' : 'text-gray-900'}
-              `}>
-                {nivel.titular}
-              </h3>
-              <p class={`text-sm font-semibold mb-4
-                ${nivel.color === 'rosa'   ? 'text-rosa-500' : ''}
-                ${nivel.color === 'oscuro' ? 'text-gray-400' : ''}
-                ${nivel.color === 'dorado' ? 'text-dorado-600' : ''}
-              `}>
-                {nivel.subtitulo}
-              </p>
-              <p class={`text-sm leading-relaxed max-w-lg
-                ${nivel.color === 'oscuro' ? 'text-gray-300' : 'text-gray-500'}
-              `}>
-                {nivel.descripcion}
-              </p>
-            </div>
-
-            <a
-              href={nivel.href}
-              class={`self-start inline-block font-bold py-3 px-6 rounded-xl text-sm transition-colors
-                ${nivel.color === 'rosa'   ? 'bg-rosa-600 hover:bg-rosa-700 text-white' : ''}
-                ${nivel.color === 'oscuro' ? 'bg-white hover:bg-gray-100 text-gray-900' : ''}
-                ${nivel.color === 'dorado' ? 'bg-dorado-500 hover:bg-dorado-600 text-white' : ''}
-              `}
-            >
-              {nivel.cta} →
-            </a>
-          </div>
-
-        </div>
-      ))}
-
-    </div>
-  </section>
-
-  <!-- ===== ZONA DE CURSOS (placeholders por nivel) ===== -->
-
-  <!-- NIVEL 1 -->
-  <section id="cursos-cero" class="py-20 px-6 bg-white border-t-4 border-rosa-100">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-center gap-3 mb-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-rosa-500">Nivel 01</span>
-      </div>
-      <h2 class="font-display text-3xl font-bold text-gray-900 mb-10">Empiezo desde cero</h2>
-      <div class="space-y-4">
-        <p class="text-gray-400 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
+  <!-- CIERRE -->
+  <section class="cierre">
+    <div class="columna-texto">
+      <hr class="separador" />
+      <p>Y si no tienes claro por dónde empiezas, no pasa nada.</p>
+      <p>La mayoría tampoco lo tiene la primera vez que llega aquí.</p>
+      <p>Empieza por la primera puerta.</p>
+      <p>Es la más barata.</p>
+      <p>Y es la única que aguanta cualquier nivel, porque desde ahí ya puedes saltar a las otras dos sin haberlo pintado todo.</p>
+      <div class="cierre-cta">
+        <CtaBoton
+          href="https://go.hotmart.com/G106098810P?ap=8fe9"
+          texto="→ Empezar por el curso Nails Basic Pro"
+        />
       </div>
     </div>
   </section>
-
-  <!-- NIVEL 2 -->
-  <section id="cursos-tecnicas" class="py-20 px-6 bg-gray-900 border-t-4 border-gray-700">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-center gap-3 mb-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Nivel 02</span>
-      </div>
-      <h2 class="font-display text-3xl font-bold text-white mb-10">Técnicas de especialización</h2>
-      <div class="space-y-4">
-        <p class="text-gray-500 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- NIVEL 3 -->
-  <section id="cursos-negocio" class="py-20 px-6 bg-white border-t-4 border-dorado-200">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-center gap-3 mb-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-dorado-600">Nivel 03</span>
-      </div>
-      <h2 class="font-display text-3xl font-bold text-gray-900 mb-10">Monta tu negocio</h2>
-      <div class="space-y-4">
-        <p class="text-gray-400 italic text-sm">— Los cursos de este nivel se añadirán aquí en breve. —</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="bg-gray-950 text-gray-500 py-10 px-6 pb-14">
-    <div class="max-w-4xl mx-auto text-center text-sm space-y-3">
-      <p class="text-white font-semibold">VivirDeLasUñas.com</p>
-      <p>Contiene enlaces de afiliado de Hotmart. Al comprar a través de ellos no pagas nada extra.</p>
-      <p class="text-xs text-gray-600">Los resultados dependen del esfuerzo de cada persona. Los testimonios no garantizan ingresos similares.</p>
-    </div>
-  </footer>
 
 </Layout>
+
+<style>
+  /* HERO */
+  .hero {
+    border-bottom: 1px solid var(--border);
+    padding: 3.5rem 1.5rem 3rem;
+  }
+  .hero-inner {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .pretitular {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .titular {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0;
+  }
+  .bandera {
+    background-color: var(--bg-alt);
+    border-left: 3px solid var(--brand);
+    padding: 0.875rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    max-width: var(--max-text);
+  }
+  .bandera p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* INTRO */
+  .intro {
+    padding: 3rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .columna-texto {
+    max-width: var(--max-text);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .columna-texto p {
+    margin: 0;
+  }
+
+  /* PUERTAS */
+  .puertas {
+    padding: 3rem 1.5rem;
+    background-color: var(--surface-alt, var(--bg-alt));
+  }
+  .puertas-grid {
+    max-width: var(--max-wide);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 900px) {
+    .puertas-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* CIERRE */
+  .cierre {
+    padding: 3rem 1.5rem 4rem;
+  }
+  .cierre-cta {
+    margin-top: 2rem;
+  }
+  .cierre-cta :global(.cta) {
+    width: 100%;
+    display: block;
+  }
+  @media (min-width: 600px) {
+    .cierre-cta :global(.cta) {
+      width: auto;
+      display: inline-block;
+    }
+  }
+</style>

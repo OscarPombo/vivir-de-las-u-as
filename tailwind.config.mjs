@@ -4,23 +4,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        rosa: {
-          50:  '#fff0f5',
-          100: '#ffe0ec',
-          400: '#f472a8',
-          500: '#ec4899',
-          600: '#db2777',
-          700: '#be185d',
+        brand: {
+          DEFAULT: '#B5455A',
+          dark:    '#8E3447',
         },
-        dorado: {
-          400: '#f6c90e',
-          500: '#eab308',
-          600: '#ca8a04',
+        surface: {
+          DEFAULT: '#FAFAF8',
+          alt:     '#F2EDE9',
         },
+        content: {
+          DEFAULT: '#1C1C1C',
+          muted:   '#6B6565',
+        },
+        border: '#DDD7D1',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans:    ['Inter', 'system-ui', 'sans-serif'],
         display: ['Playfair Display', 'Georgia', 'serif'],
+      },
+      maxWidth: {
+        text: '700px',
       },
     },
   },
