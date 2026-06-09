@@ -1,5 +1,6 @@
 ---
 import '../styles/tokens.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title:        string;
@@ -43,6 +44,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <footer class="pie">
       <p>Este sitio contiene enlaces de afiliado de Hotmart. Al comprar a través de ellos no pagas nada extra.</p>
     </footer>
+    <Analytics />
   </body>
 </html>
 
